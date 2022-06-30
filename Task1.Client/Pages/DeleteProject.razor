@@ -1,0 +1,40 @@
+﻿@page "/project/delete/{Id:int}"
+@using Task1.Shared.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager   
+<h2>Delete Project</h2>
+<br />
+<div class="form-group">
+    <h4>Do you want to delete this project?</h4>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Project Name</td>
+                <td>@project.ProjectName</td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <input type="submit" value="Delete" @onclick="(async () => await RemoveProject(project.Id))" class="btn btn-danger" />
+    <input type="submit" value="Cancel" @onclick="(() => Cancel())" class="btn btn-warning" />
+</div>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    Project project = new Project();
+    protected override async Task OnInitializedAsync()
+    {
+        project = await Http.GetFromJsonAsync<Project>("http://localhost:5238/api/Project/" + Convert.ToInt32(Id));
+    }
+    protected async Task RemoveProject(int Id)
+    {
+        await Http.DeleteAsync("http://localhost:5238/api/Project/" + Id);
+        NavigationManager.NavigateTo("/fetchprojectdetails");
+    }
+    void Cancel()
+    {
+        NavigationManager.NavigateTo("/fetchprojectdetails");
+    }
+}

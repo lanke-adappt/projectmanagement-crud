@@ -1,0 +1,102 @@
+﻿@page "/project/add"
+@page "/project/edit/{Id:int}"
+@using Task1.Shared.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+<h1>@Title Project</h1>
+<hr />
+<EditForm Model="@project" OnValidSubmit="SaveUser">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="project.ProjectName" />
+        </div>
+        <ValidationMessage For="@(() => project.ProjectName)" />
+    </div>
+    <div class="mb-3">
+        <label for="Address" class="form-label">Description</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="project.Description" />
+        </div>
+        <ValidationMessage For="@(() => project.Description)" />
+    </div>
+    <div class="mb-3">
+        <label for="Technologies" class="form-label">Technologies</label>
+        <div class="col-md-4">
+            <InputSelect class="form-control"  @bind-Value="project.Technologies">
+                @foreach (int i in Enum.GetValues(typeof(Technologies)))
+                {
+                    <option value="@i">@Enum.GetName(typeof(Technologies), i)</option>
+                }
+            </InputSelect>
+        </div>
+        
+    </div>
+   
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    protected string Title = "Add";
+    protected Project project = new Project();
+    protected Technologies technologies;
+    //public enum Technologies
+    //{
+    //    JAVA ,
+    //    ANGULAR,
+    //    DOTNET,
+    //    PYTHON
+
+    //}
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id != 0)
+        {
+            Title = "Edit";
+            project = await Http.GetFromJsonAsync<Project>("api/project/" + Id);
+        }
+    }
+    protected async Task SaveUser()
+    {
+        if (project.Id != 0)
+
+        {var project1 = new Project
+                {
+                    ProjectName = project.ProjectName,
+                    Description = project.Description,
+                    ModifiedDate= DateTime.Now,
+                    CreatedBy = "satish",
+                    ModifiedBy="satish",
+                    Technologies=project.Technologies
+                
+
+                
+            };
+            await Http.PutAsJsonAsync("api/project", project1);
+        }
+        else
+        {
+            var project1 = new Project
+                {
+                    ProjectName = project.ProjectName,
+                    Description = project.Description,
+                    CreatedDate = DateTime.Now,
+                    CreatedBy = "satish",
+                    ModifiedBy="satish",
+                    Technologies=project.Technologies
+                };
+            await Http.PostAsJsonAsync("api/project", project1);
+        }
+        Cancel();
+    }
+    public void Cancel()
+    {
+        NavigationManager.NavigateTo("/fetchprojectdetails");
+    }
+}

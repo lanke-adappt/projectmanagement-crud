@@ -1,0 +1,105 @@
+﻿@page "/fetchprojectdetails"
+
+@using Task1.Shared.Models;
+@inject HttpClient Http
+<h1>Project Data</h1>
+<p>Blazor CRUD operation</p>
+<div class="row">
+    <div class="col-md-6">
+        <a href='/project/add' class="btn btn-primary" role="button">
+            <i class="fas fa-project-plus"></i>
+            Add Project
+        </a>
+    </div>
+    <div class="input-group col">
+        <input type="text" class="form-control" placeholder="Search Project by name"
+               @bind="SearchString" @bind:event="oninput" @onkeyup="FilterProject" />
+        @if (SearchString.Length > 0)
+        {
+            <div class="input-group-append">
+                <button class="btn btn-danger" @onclick="ResetSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+<br />
+@if (projectList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-striped align-middle table-bordered">
+        <thead class="table-success">
+            <tr>
+              
+                <th>Name</th>
+                <th>Description</th>
+                 <th>Technology</th>
+                 <th>Actions</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in projectList)
+            {
+                <tr>
+                    <td>@project.ProjectName</td>
+                    <td>@project.Description</td>
+                    <td>@Enum.GetName(typeof(Technologies),int.Parse(@project.Technologies))</td>
+                   
+
+                    
+                    <td>
+                        <a href='/project/edit/@project.Id' class="btn btn-outline-dark" role="button">
+                            Edit
+                        </a>
+                        <a href='/project/delete/@project.Id' class="btn btn-outline-danger" role="button">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+@code {
+    protected List<Project> projectList = new();
+    protected List<Project> searchProjectData = new();
+    protected Project Project = new();
+    protected string SearchString { get; set; } = string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        await GetProject();
+    }
+    protected async Task GetProject()
+    {
+        projectList = await Http.GetFromJsonAsync<List<Project>>("api/Project");
+        searchProjectData = projectList;
+    }
+    protected void FilterProject()
+    {
+        if (!string.IsNullOrEmpty(SearchString))
+        {
+            projectList = searchProjectData
+                .Where(x => x.ProjectName.IndexOf(SearchString, StringComparison.OrdinalIgnoreCase) != -1)
+              .ToList();
+        }
+        else
+        {
+            projectList = searchProjectData;
+        }
+    }
+    protected void DeleteConfirm(int Id)
+    {
+        Project = projectList.FirstOrDefault(x => x.Id == Id);
+    }
+    public void ResetSearch()
+    {
+        SearchString = string.Empty;
+        projectList = searchProjectData;
+    }
+}
