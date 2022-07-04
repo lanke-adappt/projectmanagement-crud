@@ -4,7 +4,7 @@
 @inject HttpClient Http
 
 @inject NavigationManager NavManager
-@using System.Text.Json
+
 <div class="h-100 mt-5 d-flex flex-row justify-content-center">
 <div class="card text-light w-25 " style="background-color: rgb(62, 48, 84);">
     <h4 class="card-header">Login</h4>
@@ -32,28 +32,7 @@
 </div>
 
 @code {
-    Task1.Client.Models.LoginRequest model = new Models.LoginRequest();
-   
-
-    async Task OnLogin()
-
-    {
-        // await AuthService.OnLogin(model);
-        //var client = new HttpClient();
-        HttpResponseMessage  result = await Http.PostAsJsonAsync("api/User/login", model);
-        if (result.IsSuccessStatusCode)
-        {
-            var response = result.Content.ReadAsStringAsync();
-            string jsonString = JsonSerializer.Serialize(response.Result);
-            NavManager.NavigateTo("/dashboard");
-        }
-        else
-        {
-            NavManager.NavigateTo("/login");
-        }
-        
-       
-    }
+    
 
 
 

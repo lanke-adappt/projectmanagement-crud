@@ -1,4 +1,5 @@
-﻿using Task1.Shared.Models;
+﻿using Serilog;
+using Task1.Shared.Models;
 
 namespace Task1.Api.Services
 {
@@ -15,9 +16,10 @@ namespace Task1.Api.Services
             {
                 return _dbContext.ProjectMapping.ToList();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Fetching object", ex.Message);
+                return null;
             }
         }
         public void AddProjectMapping(ProjectMapping projectMapping)
@@ -27,10 +29,10 @@ namespace Task1.Api.Services
                 _dbContext.ProjectMapping.Add(projectMapping);
                 _dbContext.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
-
+                Log.Error("Error in Creating object", ex.Message);
+                
             }
         }
         public void UpdateProjectMappingDetails(ProjectMapping projectMapping)
@@ -40,9 +42,10 @@ namespace Task1.Api.Services
                 _dbContext.Entry(projectMapping).State = EntityState.Modified;
                 _dbContext.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Creating object", ex.Message);
+                
             }
         }
         public ProjectMapping GetProjectMappingData(int id)
@@ -59,9 +62,11 @@ namespace Task1.Api.Services
                     throw new ArgumentNullException();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Getting object", ex.Message);
+                return null;
+
             }
         }
         public void DeleteProjectMapping(int id)
@@ -81,9 +86,11 @@ namespace Task1.Api.Services
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Deleting object", ex.Message);
+                
+
             }
 
         }

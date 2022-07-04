@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VqHN2h0Oyean5QzLGmEqloqXhzfuUmfOvYQZZQ9OSbTQ1RpJZ5lpLJGL+nuT5hChP0s0m86hM9X6yND6tYQaSw==",
+  "dgSpecHash": "cacMKkEzJw7boXcI8peWJXCTD/SMOhL+J8VTI3c1T2/0W/osCfhIo4uMDqXjsPj21dj+NlDu+7sRurvVev546A==",
   "success": true,
-  "projectFilePath": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj",
+  "projectFilePath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

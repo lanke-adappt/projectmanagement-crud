@@ -1,0 +1,58 @@
+﻿@page "/projectmapping/add"
+@page "/projectmapping/edit/{Id:int}"
+@using Task1.Shared.Models;
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+<h1>@Title Project Mapping </h1>
+<hr />
+<EditForm Model="@projmap" OnValidSubmit="SaveProjMap">
+    <DataAnnotationsValidator />
+    <div class="mb-3">
+        <label for="Name" class="form-label">Users</label>
+        <div class="col-md-4">
+            <InputSelect class="form-control"  @bind-Value="projmap.UserID">
+                 <option value="dsds">dsdsads</option>
+                @foreach (var user  in userDetailList)
+                {
+                    <option value="@user.Id">@user.Name</option>
+                }
+            </InputSelect>
+            </div>
+      
+    </div>
+   
+    <div class="mb-3">
+        <label for="Name" class="form-label">Projects</label>
+        <div class="col-md-4">
+            <InputSelect class="form-control"  @bind-Value="projmap.ProjectID">
+                 @foreach (var project  in projectList)
+                {
+
+                    <option value="@project.Id">@project.ProjectName</option>
+                }
+            </InputSelect>
+            </div>
+    </div>
+                        
+   
+    
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Notes</label>
+        <div class="col-md-4">
+            <InputTextArea class="form-control" @bind-Value="projmap.Note" />
+        </div>
+        <ValidationMessage For="@(() => projmap.Note)" />
+    </div>
+   
+        
+   
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>
+@code {
+    
+}

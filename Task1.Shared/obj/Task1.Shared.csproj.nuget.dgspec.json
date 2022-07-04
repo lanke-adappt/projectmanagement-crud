@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj": {}
+    "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj": {
+    "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj",
+        "projectUniqueName": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj",
         "projectName": "Task1.Shared",
-        "projectPath": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj",
+        "projectPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj",
         "packagesPath": "C:\\Users\\LankeSatish\\.nuget\\packages\\",
-        "outputPath": "C:\\Addapt Tasks\\Task1.Shared\\obj\\",
+        "outputPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LankeSatish\\AppData\\Roaming\\NuGet\\NuGet.Config",

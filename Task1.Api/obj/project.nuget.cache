@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8DElRUqHkBTi0giWoWmtyvmZymqxrBIKp6FKbUx7zlUvRj126ALURj0aD4AJKZqJT+3JMD1i04a4O3ElNqaK2Q==",
+  "dgSpecHash": "ryIp2YovmSQoe678GezsGI9tvyYNSGnVIk2YerajrTTJqCpVa7cpqGELo7+KMnHvp4W7uS8E7fNhZRqN7q+wuw==",
   "success": true,
-  "projectFilePath": "C:\\Addapt Tasks\\Task1.Api\\Task1.Api.csproj",
+  "projectFilePath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\Task1.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LankeSatish\\.nuget\\packages\\blazorise\\1.0.5\\blazorise.1.0.5.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\blazorise.bootstrap\\1.0.5\\blazorise.bootstrap.1.0.5.nupkg.sha512",
@@ -46,6 +46,8 @@
     "C:\\Users\\LankeSatish\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\LankeSatish\\.nuget\\packages\\nlog\\5.0.1\\nlog.5.0.1.nupkg.sha512",
+    "C:\\Users\\LankeSatish\\.nuget\\packages\\nlog.extensions.logging\\5.0.1\\nlog.extensions.logging.5.0.1.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\serilog\\2.11.0\\serilog.2.11.0.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\LankeSatish\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",

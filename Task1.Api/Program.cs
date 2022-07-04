@@ -9,20 +9,18 @@ using Serilog.Events;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//builder.Services.AddScoped<Serilog.ILogger>((s) =>
-//{
-//    return new LoggerConfiguration()
-//#if DEBUG
-//                  .MinimumLevel.Debug()
-//#else
-//                .MinimumLevel.Information()
-//#endif
-//                  .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-//       .Enrich.FromLogContext()
-//       .WriteTo.Debug()
-//       .CreateLogger();
-//});
-
+builder.Services.AddScoped<Serilog.ILogger>((s) =>
+{
+    return new LoggerConfiguration()
+#if DEBUG
+                  .MinimumLevel.Debug()
+#else
+                .MinimumLevel.Information()
+#endif
+                  .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+       .Enrich.FromLogContext()
+       .CreateLogger();
+});
 
 
 // Add services to the container.
@@ -34,6 +32,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IProject, ProjectManager>();
 builder.Services.AddTransient<IUserDetails, UserDetailsManager>();
+builder.Services.AddTransient<IProjectMapping, ProjectMappingManager>();
 
 var app = builder.Build();
 

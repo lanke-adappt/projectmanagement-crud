@@ -1,4 +1,5 @@
-﻿using Task1.Api.Interface;
+﻿using Serilog;
+using Task1.Api.Interface;
 using Task1.Shared.Models;
 
 namespace Task1.Api.Services
@@ -16,10 +17,14 @@ namespace Task1.Api.Services
             {
                 return _dbContext.Projects.ToList();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Fetching object", ex.Message);
+                return null;
+
+
             }
+
         }
         public void AddProject(Project project)
         {
@@ -28,9 +33,10 @@ namespace Task1.Api.Services
                 _dbContext.Projects.Add(project);
                 _dbContext.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Creating object", ex.Message);
+              
 
             }
         }
@@ -41,9 +47,11 @@ namespace Task1.Api.Services
                 _dbContext.Entry(project).State = EntityState.Modified;
                 _dbContext.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Updating object", ex.Message);
+
+
             }
         }
         public Project GetProjectData(int id )
@@ -60,9 +68,11 @@ namespace Task1.Api.Services
                     throw new ArgumentNullException();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Getting object", ex.Message);
+                return null;
+
             }
         }
         public void DeleteProject(int id)
@@ -82,9 +92,10 @@ namespace Task1.Api.Services
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Deleting object", ex.Message);
+               
             }
 
         }

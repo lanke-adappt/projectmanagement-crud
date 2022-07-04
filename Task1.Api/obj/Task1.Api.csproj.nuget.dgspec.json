@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Addapt Tasks\\Task1.Api\\Task1.Api.csproj": {}
+    "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\Task1.Api.csproj": {}
   },
   "projects": {
-    "C:\\Addapt Tasks\\Task1.Api\\Task1.Api.csproj": {
+    "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\Task1.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Addapt Tasks\\Task1.Api\\Task1.Api.csproj",
+        "projectUniqueName": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\Task1.Api.csproj",
         "projectName": "Task1.Api",
-        "projectPath": "C:\\Addapt Tasks\\Task1.Api\\Task1.Api.csproj",
+        "projectPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\Task1.Api.csproj",
         "packagesPath": "C:\\Users\\LankeSatish\\.nuget\\packages\\",
-        "outputPath": "C:\\Addapt Tasks\\Task1.Api\\obj\\",
+        "outputPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LankeSatish\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj": {
-                "projectPath": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj"
+              "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj": {
+                "projectPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj"
               }
             }
           }
@@ -76,6 +76,10 @@
               "target": "Package",
               "version": "[6.0.6, )"
             },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Serilog": {
               "target": "Package",
               "version": "[2.11.0, )"
@@ -107,14 +111,14 @@
         }
       }
     },
-    "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj": {
+    "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj",
+        "projectUniqueName": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj",
         "projectName": "Task1.Shared",
-        "projectPath": "C:\\Addapt Tasks\\Task1.Shared\\Task1.Shared.csproj",
+        "projectPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\Task1.Shared.csproj",
         "packagesPath": "C:\\Users\\LankeSatish\\.nuget\\packages\\",
-        "outputPath": "C:\\Addapt Tasks\\Task1.Shared\\obj\\",
+        "outputPath": "C:\\Addapt Tasks\\projectmanagement-crud\\Task1.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LankeSatish\\AppData\\Roaming\\NuGet\\NuGet.Config",

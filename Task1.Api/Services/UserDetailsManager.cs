@@ -1,4 +1,6 @@
 ﻿using Task1.Shared.Models;
+using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Task1.Api.Services
 {
@@ -45,9 +47,9 @@ namespace Task1.Api.Services
                 _dbContext.Entry(userDetails).State = EntityState.Modified;
                 _dbContext.SaveChanges();
             }
-            catch
+            catch  (Exception ex)
             {
-                throw;
+                Log.Error("Error in updating object", ex.Message);
             }
         }
 
@@ -65,9 +67,10 @@ namespace Task1.Api.Services
                     throw new ArgumentNullException();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Fetching object", ex.Message);
+                return null;
             }
         }
         public void DeleteUserDetails(int id)
@@ -87,9 +90,10 @@ namespace Task1.Api.Services
 
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                Log.Error("Error in Deleting object object", ex.Message);
+                
             }
 
 
